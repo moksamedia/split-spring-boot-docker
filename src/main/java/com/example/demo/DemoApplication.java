@@ -20,9 +20,9 @@ public class DemoApplication {
 
 	@PostConstruct
 	public void initApplication() {
-		donutRepository.save(new Donut("Chocolate", DonutToppings.NONE, 1.50));
-		donutRepository.save(new Donut("Maple", DonutToppings.MAPLE, 1.0));
-		donutRepository.save(new Donut("Glazed", DonutToppings.GLAZED, 0.75));
+		if (donutRepository.count() > 1) return;
+		donutRepository.save(new Donut("Chocolate", DonutToppings.NONE, 1.50, 10));
+		donutRepository.save(new Donut("Maple", DonutToppings.MAPLE, 1.0, 5));
+		donutRepository.save(new Donut("Glazed", DonutToppings.GLAZED, 0.75, 20));
 	}
-
 }
